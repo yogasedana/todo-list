@@ -1,7 +1,37 @@
-// Mendapatkan referensi ke elemen HTML
+// Mendapatkan referensi ke modal dan elemennya
 const addButton = document.getElementById('add-button');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
+const modal = document.getElementById('edit-modal');
+const closeModal = document.querySelector('.close');
+const saveButton = document.querySelector('.save-button');
+const cancelButton = document.querySelector('.cancel-button');
+const editInput = document.getElementById('edit-input');
+
+// Variabel global untuk menyimpan elemen taskSpan yang sedang diedit
+let currentTaskSpan = null;
+
+// Fungsi untuk membuka modal edit dengan nilai teks awal
+function openEditModal(taskSpan) {
+  currentTaskSpan = taskSpan;
+  console.log("Modal", currentTaskSpan);
+  editInput.value = taskSpan.textContent;
+  modal.style.display = 'block';
+  editInput.focus();
+}
+
+// Event listener untuk tombol close dan batal
+closeModal.addEventListener('click', () => modal.style.display = 'none');
+cancelButton.addEventListener('click', () => modal.style.display = 'none');
+
+// Event listener untuk tombol simpan
+saveButton.addEventListener('click', () => {
+  const newText = editInput.value.trim();
+  if (newText !== '') {
+    currentTaskSpan.textContent = newText;
+  }
+  modal.style.display = 'none';
+});
 
 // Fungsi untuk menambahkan tugas beserta waktu dan tombol edit
 function addTodo() {
@@ -42,10 +72,7 @@ function addTodo() {
   editButton.className = 'edit-button';
   // Event listener untuk tombol edit
   editButton.addEventListener('click', function() {
-    const newText = prompt('Edit tugas:', taskSpan.textContent);
-    if (newText !== null && newText.trim() !== '') {
-      taskSpan.textContent = newText.trim();
-    }
+    openEditModal(taskSpan);
   });
   
   // Buat tombol hapus
@@ -78,4 +105,11 @@ todoInput.addEventListener('keyup', function(event) {
   if (event.key === 'Enter') {
     addTodo();
   }
+});
+
+// Tutup modal jika klik di luar modal-content
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
 });

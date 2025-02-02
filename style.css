@@ -42,7 +42,7 @@ h1 {
   margin-bottom: 25px;
 }
 
-#todo-input {
+.input-form {
   flex: 1;
   padding: 12px 15px;
   border: 2px solid #ddd;
@@ -52,7 +52,7 @@ h1 {
   transition: border-color 0.3s ease;
 }
 
-#todo-input:focus {
+.input-form:focus {
   border-color: #74ebd5;
 }
 
@@ -202,11 +202,8 @@ h1 {
 /* Input teks modal */
 .modal-content input[type="text"] {
   width: 100%;
-  padding: 12px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
 }
 
 /* Tombol-tombol modal */
