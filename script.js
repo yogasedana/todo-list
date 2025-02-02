@@ -66,6 +66,15 @@ function addTodo() {
   // Format waktu menjadi "HH:MM:SS"
   timeSpan.textContent = `${hours}:${minutes}:${seconds}`;
   
+  // Tombol Done
+  const doneButton = document.createElement('button');
+  doneButton.textContent = 'Done';
+  doneButton.className = 'done-button';
+  doneButton.addEventListener('click', function() {
+    // Toggle kelas 'completed' pada taskSpan
+    taskSpan.classList.toggle('completed');
+  });
+
   // Buat tombol edit
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
@@ -88,6 +97,7 @@ function addTodo() {
   li.appendChild(taskSpan);
   li.appendChild(timeSpan);
   li.appendChild(editButton);
+  li.appendChild(doneButton);
   li.appendChild(deleteButton);
   
   // Tambahkan list item ke dalam todo list

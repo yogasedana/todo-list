@@ -238,3 +238,25 @@ h1 {
 .cancel-button:hover {
   background-color: #e53935;
 }
+
+/* Tombol Done */
+.done-button {
+  background: #2196F3;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.done-button:hover {
+  background-color: #1976d2;
+}
+
+/* Efek untuk tugas yang sudah selesai */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
