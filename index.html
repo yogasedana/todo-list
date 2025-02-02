@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>To-Do List Sederhana</title>
     <!-- Sertakan CSS untuk styling -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -19,6 +19,19 @@
         <ul id="todo-list">
             <!-- Daftar tugas akan ditambahkan di sini -->
         </ul>
+    </div>
+
+    <!-- Modal Edit -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Tugas</h2>
+            <input type="text" id="edit-input" placeholder="Ubah teks tugas...">
+            <div class="modal-buttons">
+                <button class="save-button">Simpan</button>
+                <button class="cancel-button">Batal</button>
+            </div>
+        </div>
     </div>
 
     <!-- Sertakan JavaScript -->
